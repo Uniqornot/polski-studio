@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg fonts-de
 WORKDIR /app
 COPY requirements.txt ./
 RUN python -m pip install --no-cache-dir -r requirements.txt
-COPY app.py control.py parser.py tts.py video.py generate.py cleanup.py phrases.json README.md ./
+COPY app.py control.py parser.py tts.py video.py generate.py cleanup.py phrases.json README.md LICENSE ./
 COPY templates/ ./templates/
 COPY static/ ./static/
 RUN mkdir /app/cache /app/output && chown studio:studio /app/cache /app/output
