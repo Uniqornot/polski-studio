@@ -1,0 +1,9 @@
+.venv
+__pycache__
+.git
+.env*
+cache
+output
+work
+.playwright-cli
+*.zip

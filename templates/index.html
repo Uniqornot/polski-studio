@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Polski — слова в движении</title><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css?v=20261009-submit1"><script src="/static/app.js?v=20261009-submit1" defer></script></head>
+<body>
+<main>
+  <header><a class="brand" href="/">polski<span>studio</span></a><span class="badge">PL → RU</span></header>
+  <section class="intro"><p class="eyebrow">ВАШИ СЛОВА. ВАШ ТЕМП.</p><h1>Польский, который<br>остаётся с вами.</h1><p>Превратите список слов в видео для телефона.<br>Читайте, слушайте и повторяйте в удобном ритме.</p></section>
+  <form id="form">
+    <div class="editor panel"><div class="section-title"><h2>Слова и переводы</h2><span id="count">0 строк</span></div>
+      <label class="sr-only" for="text">Вставьте слова и переводы</label>
+      <div class="text-editor">
+        <div id="line-gutter" class="line-gutter" aria-hidden="true"></div>
+        <div id="text-measure" class="text-measure" aria-hidden="true"></div>
+      <textarea id="text" name="text" required maxlength="100000" placeholder="3 dni - 3 дня&#10;szlaban - шлагбаум&#10;jest otwarty - он открыт&#10;otwiera się - открывается"></textarea>
+      </div>
+      <div class="editor-footer"><span>Одна пара на строку · разделитель « - »</span><button id="normalize" type="button">Очистить и проверить</button><button id="example" type="button">Вставить пример ↗</button></div>
+    </div>
+    <p id="normalized-summary" class="normalization-summary" aria-live="polite" hidden></p>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div class="settings panel"><div class="section-title"><h2>Ритм обучения</h2><span>Подстройте под себя</span></div>
+      <div class="settings-grid">
+        <label>Повторения<div class="input-wrap"><input id="repetitions" type="number" min="1" max="5" value="3" required><span>раза</span></div></label>
+        <label>Польский<div class="input-wrap"><input id="pl_rate" type="number" min="-50" max="50" value="-20" required><span>%</span></div><small>Zofia · pl-PL</small></label>
+        <label>Русский<div class="input-wrap"><input id="ru_rate" type="number" min="-50" max="50" value="5" required><span>%</span></div><small>Svetlana · ru-RU</small></label>
+        <label>Фраза → перевод<div class="input-wrap"><input id="language_pause" type="number" min="0" max="5000" step="50" value="600" required><span>мс</span></div></label>
+        <label>Между повторениями<div class="input-wrap"><input id="repeat_pause" type="number" min="0" max="5000" step="50" value="900" required><span>мс</span></div></label>
+        <label>Между карточками<div class="input-wrap"><input id="card_pause" type="number" min="0" max="5000" step="50" value="1500" required><span>мс</span></div></label>
+      </div>
+    </div>
+    <div class="action"><p>Вертикальное видео · 1080 × 1920<br><span>MP4 для телефона + отдельный MP3</span></p><button id="submit" class="primary" type="submit" disabled aria-disabled="true">Создать видео <span>→</span></button></div>
+  </form>
+  <section id="result" class="panel result" aria-live="polite"><div class="section-title"><h2 id="stage">Файлы ещё не готовы</h2><span id="progress-label"></span></div><progress id="progress" hidden></progress><button id="cancel" class="secondary cancel" type="button" hidden>Отменить задание</button><div id="downloads"><p id="metadata"></p><div class="download-row"><a id="mp4" class="primary" aria-disabled="true" tabindex="-1" download>Скачать MP4 ↓</a><a id="mp3" class="secondary" aria-disabled="true" tabindex="-1" download>Скачать MP3 ↓</a></div></div></section>
+  <footer class="site-footer"><div>Polski Studio · бесплатный учебный проект<br><span>Проверка до 500 строк · видео до 30 минут</span></div><nav aria-label="Правовая информация"><a href="/static/legal.html#terms">Условия использования</a><a href="/static/legal.html#privacy">Конфиденциальность</a><a href="mailto:moonstranger777@gmail.com">Связаться</a></nav></footer>
+</main>
+</body></html>
