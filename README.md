@@ -33,7 +33,7 @@
 Нужен Docker с Compose; на Windows — Docker Desktop с Linux-контейнерами.
 
 1. В [Releases](https://github.com/Uniqornot/polski-studio/releases/latest) скачайте **архив Docker-образа** и **архив установки**.
-2. Распакуйте установку и положите рядом архив образа.
+2. Распакуйте установку, положите рядом архив образа и создайте каталоги `cache` и `output`.
 3. Откройте терминал в этом каталоге и выполните:
 
    ```bash
