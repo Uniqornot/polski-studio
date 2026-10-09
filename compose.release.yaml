@@ -1,0 +1,40 @@
+name: polski-studio
+services:
+  studio:
+    image: polski-studio:1.0.0
+    pull_policy: never
+    container_name: polski-studio
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    environment:
+      TTS_HOST: "0.0.0.0"
+      TTS_PORT: "8080"
+      TTS_ALLOWED_ORIGINS: "${TTS_ALLOWED_ORIGINS:-}"
+    ports:
+      - "${TTS_BIND_ADDRESS:-127.0.0.1}:${TTS_PORT:-8080}:8080"
+    volumes:
+      - ./cache:/app/cache
+      - ./output:/app/output
+    read_only: true
+    tmpfs:
+      - /tmp:size=268435456,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2.0
+    mem_limit: 1g
+    pids_limit: 128
+    stop_grace_period: 30s
+    labels:
+      ai.lab.project: polski-studio
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=3)"]
+      interval: 20s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
