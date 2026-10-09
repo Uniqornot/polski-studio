@@ -28,47 +28,22 @@
 - Кэш речи и нормализованного аудио, до трёх параллельных запросов синтеза.
 - Адаптивный интерфейс, доступные элементы управления и правовая информация.
 
-## Готовый контейнер без сборки
-
-Откройте [релиз 1.0.0](https://github.com/Uniqornot/polski-studio/releases/tag/v1.0.0), скачайте **архив Docker-образа** и **архив установки**. Распакуйте установку и загрузите образ:
-
-```bash
-docker load -i polski-studio-1.0.0-docker-linux-amd64.tar.gz
-docker compose up -d
-```
-
-Образ предназначен для **linux/amd64**; Windows поддерживается через Docker Desktop. [Подробная инструкция на русском](docs/УСТАНОВКА-РЕЛИЗА.md). В репозитории готовому образу соответствует `compose.release.yaml`; для него используйте `docker compose -f compose.release.yaml up -d` после загрузки образа и создания каталогов.
-
 ## Быстрая установка
 
-Нужны Git и Docker с плагином Compose. На Windows подойдёт Docker Desktop с Linux-контейнерами. Для синтеза требуется интернет; API-ключ для текущего провайдера не нужен.
+Нужен Docker с Compose; на Windows — Docker Desktop с Linux-контейнерами.
 
-```bash
-git clone https://github.com/Uniqornot/polski-studio.git
-cd polski-studio
-mkdir -p cache output
-docker compose up -d --build
-```
+1. В [Releases](https://github.com/Uniqornot/polski-studio/releases/latest) скачайте **архив Docker-образа** и **архив установки**.
+2. Распакуйте установку и положите рядом архив образа.
+3. Откройте терминал в этом каталоге и выполните:
 
-На Linux контейнер работает от UID/GID `1000:1000`. Если ваш пользователь имеет другой UID, предоставьте ему права записи в эти два каталога:
+   ```bash
+   docker load -i polski-studio-1.0.0-docker-linux-amd64.tar.gz
+   docker compose up -d
+   ```
 
-```bash
-sudo chown -R 1000:1000 cache output
-```
+Откройте **http://127.0.0.1:8080**. Готовый образ — **linux/amd64**; для синтеза нужен интернет, API-ключ не требуется.
 
-В PowerShell вместо `mkdir -p` можно выполнить:
-
-```powershell
-New-Item -ItemType Directory -Force cache, output
-```
-
-Откройте **http://127.0.0.1:8080**. При первом запуске скачиваются зависимости и собирается образ.
-
-```bash
-docker compose ps                    # Состояние; ожидается healthy
-docker compose logs --tail=100 studio # Последние сообщения
-docker compose down                  # Остановка, файлы сохраняются
-```
+[Подробная установка, права каталогов и настройки](docs/УСТАНОВКА-РЕЛИЗА.md) · [Сборка из исходников](docs/СБОРКА-ИЗ-ИСХОДНИКОВ.md)
 
 ## Как пользоваться
 
